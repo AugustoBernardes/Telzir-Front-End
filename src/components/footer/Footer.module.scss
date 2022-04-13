@@ -1,0 +1,63 @@
+@import "../../styles/variables.scss";
+
+.container{
+    position: sticky;
+    bottom: 0;
+
+    width:100%; 
+    background: $primary;
+
+    padding: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .about{        
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+
+        font-size: small;
+        color: white;
+    }
+    
+    .social{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        color: $light;
+    
+        width: 100%;
+
+        // Desativated for now
+
+        // &_title{
+        //     margin-top: -15px;
+        //     margin-bottom: 5px;
+        //     font-weight: 600;
+        // }
+
+        &_links{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            width: 50%;
+        }
+
+        .icons{
+            text-decoration: none;
+            color: $light;
+        }
+
+        .icons:hover{
+            color: rgba($light, 0.3);
+        }
+
+    }
+    
+}
+

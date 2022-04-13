@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+$Roboto:"Roboto", sans-serif;
+
+// Colors
+$primary: #342375;
+$light: #fff;
+$secondary: rgb(253, 253, 253);
+$bg : rgb(244,244,255);
+
+// Spacing
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+// Border Radius
+$border-radius: 12px;
+
+// Header Height
+$header-height: 100px;
+
+@mixin breakpoint($point) {
+    @if( $point == md){
+        // 768px
+        @media(min-width: 48em){
+            @content;
+        }
+    }
+
+    @if( $point == lg){
+        // 900px
+        @media(min-width: 900px){
+            @content;
+        }
+    }
+}
