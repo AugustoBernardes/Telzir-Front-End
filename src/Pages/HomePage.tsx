@@ -2,12 +2,19 @@ import Header from "../components/header/Header"
 import Footer from "../components/footer/Footer"
 import About_Image from "../assets/about_img.svg"
 
+import { useState } from "react"
+
 import classes from "../Pages/Main.module.scss"
 
 
 
 function HomePage(this: any) {
+  const [ plan,setPlan ] = useState('')
 
+  const handleSubmit = (event:any) => {
+    event.preventDefault();
+    console.log(event.target.origin.value)
+  }
   return (
     <>  
       <Header/>    
@@ -61,25 +68,37 @@ function HomePage(this: any) {
               </div>
               <div className={classes.calculator}>
                 <h2 className={classes.calculator_title}>Calcule agora o valor antigo e com o plano!</h2>
-                <form >
+                <form  onSubmit={handleSubmit} >
                   <div className={classes.form_data}>
                     <label>
-                      Origem:
-                      <select >
-                        <option value="grapefruit">Grapefruit</option>
-                        <option value="lime">Lime</option>
-                        <option value="coconut">Coconut</option>
-                        <option value="mango">Mango</option>
+                      Origem
+                      <select name="origin">
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="017">017</option>
+                        <option value="018">018</option>
                       </select>
                     </label>
                     <label>
-                      Destino:
-                      <select >
-                        <option value="grapefruit">Grapefruit</option>
-                        <option value="lime">Lime</option>
-                        <option value="coconut">Coconut</option>
-                        <option value="mango">Mango</option>
+                      Destino
+                      <select name="destiny">
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="017">017</option>
+                        <option value="018">018</option>
                       </select>
+                    </label>
+                    <label>
+                      Pacote
+                      <select name="plan">
+                        <option value='Fale 30'>Fale 30</option>
+                        <option value='Fale 60'>Fale 60</option>
+                        <option value='Fale 120'>Fale 120</option>
+                      </select>
+                    </label>
+                    <label>
+                      Minutos
+                      <input type="number" placeholder='Minutos' name="minutes" id="minutes" />
                     </label>
                   </div>
                   <input type="submit" value="Calcular" />
