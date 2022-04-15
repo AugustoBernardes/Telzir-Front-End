@@ -9,12 +9,114 @@ import classes from "../Pages/Main.module.scss"
 
 
 function HomePage(this: any) {
+  const [ destiny,setDestiny ] = useState('')
+  const [ origin,setOrigin ] = useState('')
   const [ plan,setPlan ] = useState('')
+  const [ minutes,setMinutes ] = useState('')
+  const [ pricePlan,setpricePlan ] = useState('')
+  const [ priceNoPlan,setPriceNoPlan ] = useState('')
+  const [ error,setError ] = useState(false)
 
-  const handleSubmit = (event:any) => {
+  const calculate = (event:any) => {
     event.preventDefault();
-    console.log(event.target.origin.value)
+    setError(false)
+
+    // Receiving variables
+    let origin = event.target.origin.value
+    let destiny = event.target.destiny.value
+    let plan = event.target.plan.value
+    let minutes = event.target.minutes.value
+
+    setOrigin(origin)
+    setDestiny(destiny)
+    setMinutes(minutes)
+    setPlan(`Fale ${plan}`)
+
+    if(origin == '011' && destiny == '016'){
+
+      if((minutes - plan) > 0){
+        let price = (minutes - plan ) * 1.90
+        let tax = price * 0.10
+        let price_with_plan = (price + tax).toFixed(2)
+
+        setpricePlan(price_with_plan)
+      }else{
+        setpricePlan('0')
+      }
+      setPriceNoPlan((minutes * 1.90).toFixed(2))
+
+    }else if(origin == '016' && destiny == '011'){
+
+      if((minutes - plan) > 0){
+        let price = (minutes - plan ) * 2.90
+        let tax = price * 0.10
+        let price_with_plan = (price + tax).toFixed(2)
+
+        setpricePlan(price_with_plan)
+      }else{
+        setpricePlan('0')
+      }
+      setPriceNoPlan((minutes * 2.90).toFixed(2))
+      
+    }else if(origin == '011' && destiny == '017'){
+
+      if((minutes - plan) > 0){
+        let price = (minutes - plan ) * 1.70
+        let tax = price * 0.10
+        let price_with_plan = (price + tax).toFixed(2)
+
+        setpricePlan(price_with_plan)
+      }else{
+        setpricePlan('0')
+      }
+      setPriceNoPlan((minutes * 1.70).toFixed(2))
+      
+    }else if(origin == '017' && destiny == '011'){
+
+      if((minutes - plan) > 0){
+        let price = (minutes - plan ) * 2.70
+        let tax = price * 0.10
+        let price_with_plan = (price + tax).toFixed(2)
+
+        setpricePlan(price_with_plan)
+      }else{
+        setpricePlan('0')
+      }
+      setPriceNoPlan((minutes * 2.90).toFixed(2))
+      
+    }else if(origin == '011' && destiny == '018'){
+
+      if((minutes - plan) > 0){
+        let price = (minutes - plan ) * 0.90
+        let tax = price * 0.10
+        let price_with_plan = (price + tax).toFixed(2)
+
+        setpricePlan(price_with_plan)
+      }else{
+        setpricePlan('0')
+      }
+      setPriceNoPlan((minutes * 2.90).toFixed(2))
+      
+    }else if(origin == '018' && destiny == '011'){
+
+      if((minutes - plan) > 0){
+        let price = (minutes - plan ) * 1.90
+        let tax = price * 0.10
+        let price_with_plan = (price + tax).toFixed(2)
+
+        setpricePlan(price_with_plan)
+      }else{
+        setpricePlan('0')
+      }
+      setPriceNoPlan((minutes * 1.90).toFixed(2))
+      
+    }else{
+      setError(true)
+    }
+    
   }
+
+
   return (
     <>  
       <Header/>    
@@ -68,7 +170,7 @@ function HomePage(this: any) {
               </div>
               <div className={classes.calculator}>
                 <h2 className={classes.calculator_title}>Calcule agora o valor antigo e com o plano!</h2>
-                <form  onSubmit={handleSubmit} >
+                <form  onSubmit={calculate} >
                   <div className={classes.form_data}>
                     <label>
                       Origem
@@ -91,9 +193,9 @@ function HomePage(this: any) {
                     <label>
                       Pacote
                       <select name="plan">
-                        <option value='Fale 30'>Fale 30</option>
-                        <option value='Fale 60'>Fale 60</option>
-                        <option value='Fale 120'>Fale 120</option>
+                        <option value={30}>Fale 30</option>
+                        <option value={60}>Fale 60</option>
+                        <option value={120}>Fale 120</option>
                       </select>
                     </label>
                     <label>
@@ -103,6 +205,15 @@ function HomePage(this: any) {
                   </div>
                   <input type="submit" value="Calcular" />
                 </form>
+                { error ? <p>Faça uma simulação valida!</p> : 
+                  <div className={classes.calculated_values}>
+                    <div className={classes.calculated_values_card}>
+                        <h2>Origem</h2>
+                        <p>1233</p>
+                    </div>
+                    
+                </div>
+                }
               </div>
             </div>
         </main>     
