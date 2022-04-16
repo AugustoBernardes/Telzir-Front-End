@@ -1,7 +1,9 @@
 {
-  "name": "web",
+  "name": "telzir-app",
   "private": true,
   "version": "0.0.0",
+  "author": "https://github.com/AugustoBernardes",
+  "repository": "https://github.com/AugustoBernardes/Telzir-Front-End",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
