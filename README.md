@@ -14,6 +14,7 @@ This is a fake company website, created to pratice my React knowledge.
 + To dowload the packages use NPM install or YARN 
 + To run the app use YARN dev
 + Server will run in localhost !
++ Video explaining [here](https://youtu.be/uVatUBYO2jU)
 ---
 ## Technologies Used:
 
