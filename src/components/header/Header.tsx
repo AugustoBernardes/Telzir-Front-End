@@ -46,13 +46,13 @@ const Header = () => {
                 <a href="/">Home</a>
               </li>
               <li onClick={menuToggleHandler}>
-                <a href="/">About</a>
+                <a href="/">Sobre</a>
               </li>
               <li onClick={menuToggleHandler} >
-                <a href="#social"  >Contact</a>
+                <a href="/"  >Contato</a>
               </li>
           </ul>
-          <button>Sign In</button>
+          <button>Login</button>
         </nav>
         <div className={classes.header_content_toggle}>
           {menuOpen ? <AiOutlineClose onClick={menuToggleHandler}/> : <GiHamburgerMenu onClick={menuToggleHandler}/>}

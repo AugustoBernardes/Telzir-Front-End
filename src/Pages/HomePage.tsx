@@ -121,14 +121,13 @@ function HomePage(this: any) {
     <>  
       <Header/>    
         <main>
-            <div className={classes.about} id='about'>
-                <img className={classes.about_image} src={About_Image} alt="About Image" />
-                <p className={classes.about_text}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div>
+          <div className={classes.body}>
+            <h1 className={classes.body_title}>A telzir é uma compania telefonica reconhecida nacionalmente e internacionalmete com planos incriveis!</h1>
+            <button className={classes.body_button}>Contato</button>
+          </div>
             <div className={classes.promotion}>
               <h2 className={classes.promotion_title}>Promoção Fale Mais!</h2>
               <div className={classes.promotion_about}>
-                  <h3>Com a telzir você pode fazer ligações dos destinos abaixo!</h3>
                   <table>
                     <tr>
                       <th>Origem</th>
@@ -166,53 +165,52 @@ function HomePage(this: any) {
                       <td>R$ 1,90</td>
                     </tr>
                   </table>
-                  <h3>Com os novos planos você paga apenas o exedente, atualmente temos os planos Fale 30, Fale 60 e Fale 120!</h3>
               </div>
               <div className={classes.calculator}>
-                <h2 className={classes.calculator_title}>Calcule agora o valor antigo e com o plano!</h2>
+                <h2 className={classes.calculator_title}>Calcule agora o valor antigo e com os plano Fale 30, 60 e 120!</h2>
                 <form  onSubmit={calculate} >
                   <div className={classes.form_data}>
-                    <label>
-                      Origem
-                      <select name="origin">
-                        <option value="011">011</option>
-                        <option value="016">016</option>
-                        <option value="017">017</option>
-                        <option value="018">018</option>
-                      </select>
-                    </label>
-                    <label>
-                      Destino
-                      <select name="destiny">
-                        <option value="011">011</option>
-                        <option value="016">016</option>
-                        <option value="017">017</option>
-                        <option value="018">018</option>
-                      </select>
-                    </label>
-                    <label>
-                      Pacote
-                      <select name="plan">
-                        <option value={30}>Fale 30</option>
-                        <option value={60}>Fale 60</option>
-                        <option value={120}>Fale 120</option>
-                      </select>
-                    </label>
-                    <label>
-                      Minutos
-                      <input type="number" placeholder='Minutos' name="minutes" id="minutes" />
-                    </label>
+                    <div className={classes.form_data_camps}>
+                      <label>
+                        Origem
+                        <select name="origin">
+                          <option value="011">011</option>
+                          <option value="016">016</option>
+                          <option value="017">017</option>
+                          <option value="018">018</option>
+                        </select>
+                      </label>
+                      <label>
+                        Destino
+                        <select name="destiny">
+                          <option value="011">011</option>
+                          <option value="016">016</option>
+                          <option value="017">017</option>
+                          <option value="018">018</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div className={classes.form_data_camps}>
+                      <label>
+                        Pacote
+                        <select name="plan">
+                          <option value={30}>Fale 30</option>
+                          <option value={60}>Fale 60</option>
+                          <option value={120}>Fale 120</option>
+                        </select>
+                      </label>
+                      <label>
+                        Minutos
+                        <input type="number" placeholder='Minutos' name="minutes" id="minutes" />
+                      </label>
+                    </div>          
                   </div>
                   <input type="submit" value="Calcular" />
                 </form>
-                { error ? <p>Faça uma simulação valida!</p> : 
+                { error ? <h3 className={classes.calculated_values}>Faça uma simulação valida!</h3> : 
                   <div className={classes.calculated_values}>
-                    <div className={classes.calculated_values_card}>
-                        <h2>Origem</h2>
-                        <p>1233</p>
-                    </div>
-                    
-                </div>
+                    <h3>Falando por {minutes} minutos do DDD:{origin} para {destiny}, sem o plano ficaria R${priceNoPlan}, mas com o plano {plan} vai para R${pricePlan}!</h3>
+                 </div>
                 }
               </div>
             </div>

@@ -1,26 +1,84 @@
 @import "../styles/variables.scss";
 
-.about{
 
-
-    padding: 40px;
-
+.body{
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
     align-items: center;
 
-    @include breakpoint(lg){
+
+    width: 100%;
+    background-image:linear-gradient(rgba($primary, 0.6), rgba($primary, 0.6)), url('../assets/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    background-size: 100%;;
+    height: 100%;
+
+    margin-bottom: 20px;
+
+    @include breakpoint(md){
         display: flex;
-        flex-direction: row;
+        padding: 30px;
+        height: 400px;
     }
 
-    &_image{
-        padding: 10px;
-        width: 500px;
+    &_title{
+        
+
+        color: $light;
+        padding: 20px;
+
+        @include breakpoint(md){
+            text-align: center;
+            border-radius: 20px;
+
+            padding: 30px;
+
+        }
+    
     }
 
+    &_button{
+        width: 50%;
+        margin-bottom: 20px;
+
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        padding: 0.57rem 1.25rem;
+        border-radius: $border-radius;
+        font-size: 1.5rem;
+        font-family: inherit;
+        box-shadow: 2px 2px 2px #00000073;
+        background: $primary;
+        color: $light;
+        border: 1px solid transparent;
+        transition: 0.3s ease all;
+
+        @include breakpoint(md){
+            width: 300px;
+            padding: 20px;
+            margin-bottom: -20px;
+        }
+
+        &:hover{
+            border-color: $primary;
+            background: rgba($primary, 0.6);
+            color: $light;
+        }
+
+        &:active{
+            border-color: $primary;
+            background: linear-gradient(rgba($primary, 0.2),rgba($primary, 0.3));
+            color: $primary;
+        }   
+    }
+    
+    
 }
+
 
 .promotion{
     display: flex;
@@ -42,7 +100,9 @@
         flex-direction: column;
         align-items: center;
 
-        
+        width: 80%;
+
+        margin-bottom: 30px;
 
         h3{
             padding: 30px;
@@ -140,7 +200,7 @@ form{
             justify-content: center;
             align-items: center;
 
-            padding: 30px;
+            padding: 10px;
 
             select{
                 text-align: center;
@@ -158,4 +218,19 @@ form{
 
         
     }
+}
+
+.calculated_values{
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    text-align: center;
+    width: 80%;
+    min-width: 300px;
+    background: rgba($primary, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.534);
+
+    color: $light;
 }
